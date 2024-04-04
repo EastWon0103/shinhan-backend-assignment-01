@@ -11,9 +11,9 @@ public class AccountService {
             toAccount.deposit(amount);
             System.out.printf("%d 원이 이체되었습니다.\n", amount);
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
             fromAccount.setBalance(originalFromBalance);
             toAccount.setBalance(originalToBalance);
+            throw new IllegalArgumentException("계좌 잔액 부족으로 이체가 불가능합니다.\"");
         }
     }
 }

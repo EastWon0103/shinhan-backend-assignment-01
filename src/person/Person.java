@@ -33,8 +33,12 @@ public class Person {
     }
 
     public void purchaseDevice(ElectronicStore purchaseStore, String model) {
-        this.device = purchaseStore.receivePurchaseOrder(model, this.account);
-        System.out.printf("%s(이)가 %s를 구매하였습니다.\n", this.name, device.getModel());
+        try {
+            this.device = purchaseStore.receivePurchaseOrder(model, this.account);
+            System.out.printf("%s(이)가 %s를 구매하였습니다.\n", this.name, device.getModel());
+        } catch (RuntimeException e) {
+            System.out.printf("%s는 %s(을)를 살 수 없습니다. ㅜㅜ \n",name, model);
+        }
     }
 
     public void turnOn() {
