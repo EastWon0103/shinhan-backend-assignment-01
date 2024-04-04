@@ -24,7 +24,7 @@ public class Main {
             ));
 
             // 쏘니와 베컴
-            Person sonny = new Person("쏘니", new Account(90));
+            Person sonny = new Person("쏘니", new Account(100000000));
             Person beckham = new Person("베컴", new Account(100000000));
 
             // 쏘니는 S20(삼성폰)을, 베컴은 13Pro(애플폰)을 삼
