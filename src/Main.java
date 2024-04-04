@@ -7,14 +7,8 @@ import store.ElectronicStore;
 import java.util.Arrays;
 
 public class Main {
-    /*
-     * Q: 사람이 상점에서 핸드폰을 구매합니다.
-     * 쏘니가 삼성핸드폰을 샀습니다.
-     * 베컴은 애플핸드폰을 샀습니다.
-     * 쏘니가 핸드폰을 켰습니다. -> "야 내 핸드폰 켜볼게" 사람이 오침 -> "삐비빅" (핸드폰이 내는 소리)
-     * 베컴도 핸드폰을 켰습니다. -> "turn on" => 'bbeep"(핸드폰을 내는 소리)
-     * */
     public static void main(String[] args) {
+        // 일단 성공 시나리오
         try {
             // 공장 생성
             MobileFactory mobileFactory = new MobileFactory();
@@ -41,6 +35,8 @@ public class Main {
             sonny.think("내가 폰을 켜볼게");
             sonny.turnOn();
 
+            beckham.think("I'll turn on my device too.");
+            beckham.turnOn();
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
