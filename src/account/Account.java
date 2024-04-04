@@ -19,7 +19,9 @@ public class Account {
     }
     void setBalance(long amount) {
         if (amount < 0) {
-            System.out.println("계좌 잔액은 0 미만으로 설정될 수 없습니다.");
+            throw new IllegalArgumentException("계좌 잔액은 0 미만으로 설정될 수 없습니다.");
         }
+
+        this.balance = amount;
     }
 }

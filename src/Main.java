@@ -33,6 +33,13 @@ public class Main {
             Person sonny = new Person("쏘니", new Account(100000000));
             Person beckham = new Person("베컴", new Account(100000000));
 
+            // 쏘니는 S20(삼성폰)을, 베컴은 13Pro(애플폰)을 삼
+            sonny.purchaseDevice(electronicStore, "S20");
+            beckham.purchaseDevice(electronicStore, "13Pro");
+
+            // 쏘니가 켜야겠다는 생각을 하고 말함, 그리고 폰을 킴
+            sonny.think("내가 폰을 켜볼게");
+            sonny.turnOn();
 
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());

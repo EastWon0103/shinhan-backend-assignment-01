@@ -9,7 +9,7 @@ public class AccountService {
         try {
             fromAccount.withdraw(amount);
             toAccount.deposit(amount);
-            System.out.printf("%원이 이체되었습니다.", amount);
+            System.out.printf("%d 원이 이체되었습니다.\n", amount);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             fromAccount.setBalance(originalFromBalance);

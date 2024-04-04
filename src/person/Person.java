@@ -1,12 +1,13 @@
 package person;
 
 import account.Account;
-import device.mobile.Mobile;
+import device.interfaces.Deviceable;
+import store.ElectronicStore;
 
 public class Person {
     private String name;
     private Account account;
-    private Mobile mobile;
+    private Deviceable device;
     private String thought;
 
     public Person(String name, Account account) {
@@ -18,30 +19,31 @@ public class Person {
         return account;
     }
 
-    public void receiveMobile(Mobile mobile) {
-        if(mobile == null) throw new RuntimeException("받는 핸드폰은 꼭 설정되어 있어야 합니다.");
-        this.mobile = mobile;
-    }
-    public void setThought(String thought) {
+    public void think(String thought) {
         if(thought == null) throw new RuntimeException("생각한 말이 꼭 있어야 설정되요.");
         this.thought = thought;
     }
 
-    private void say() {
+    public void say() {
         if (thought == null) {
-            System.out.printf("%s는 현재 할 말이 없습니다.", name);
+            System.out.printf("%s는 현재 할 말이 없습니다.\n", name);
             return;
         }
-        System.out.printf("%s: %s", name, thought);
+        System.out.printf("%s: %s\n", name, thought);
+    }
+
+    public void purchaseDevice(ElectronicStore purchaseStore, String model) {
+        this.device = purchaseStore.receivePurchaseOrder(model, this.account);
+        System.out.printf("%s(이)가 %s를 구매하였습니다.\n", this.name, device.getModel());
     }
 
     public void turnOn() {
-        if (mobile == null) {
+        if (device == null) {
             System.out.printf("%s는 아직 폰이 없습니다.\n", name);
             return;
         }
 
         say();
-        mobile.onBoot();
+        device.onBoot();
     }
 }

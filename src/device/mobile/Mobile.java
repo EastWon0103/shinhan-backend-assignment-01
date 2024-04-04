@@ -24,7 +24,7 @@ public abstract class Mobile implements Deviceable {
 
     @Override
     public void onBoot() {
-        System.out.printf("\"%s\", %s가 켜졌습니다.",vibrationSound, model);
+        System.out.printf("\"%s\", %s(이)가 켜졌습니다.\n",vibrationSound, model);
     }
 
     @Override
